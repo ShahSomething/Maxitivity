@@ -1,0 +1,18 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: OstrichSans-Heavy
+font link: https://www.fontsquirrel.com/fonts/ostrich-sans
+font author: Tyler Finck
+font author site: https://www.tylerfinck.com
+
+
+icon designer: Claudio Gomboli
+icon designer link: /clagom
+        
+
+fontColor: {"hex":"#CBD447"}
+bgColor: {"hex":"#000000"}
+iconColor: {"hex":"#CBD447"}
+
+      
