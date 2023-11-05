@@ -6,12 +6,14 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:maxitivity/ui/views/navigation/navigation_view.dart';
 import 'package:maxitivity/ui/views/timer/timer_view.dart';
 import 'package:maxitivity/services/timer_service.dart';
+import 'package:maxitivity/ui/views/history/history_view.dart';
 // @stacked-import
 
 @StackedApp(routes: [
   MaterialRoute(page: StartupView),
   MaterialRoute(page: NavigationView),
   MaterialRoute(page: TimerView),
+  MaterialRoute(page: HistoryView),
 // @stacked-route
 ], dependencies: [
   LazySingleton(classType: BottomSheetService),

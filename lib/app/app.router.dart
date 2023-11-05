@@ -7,6 +7,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart' as _i6;
 import 'package:flutter/material.dart';
+import 'package:maxitivity/ui/views/history/history_view.dart' as _i5;
 import 'package:maxitivity/ui/views/navigation/navigation_view.dart' as _i3;
 import 'package:maxitivity/ui/views/startup/startup_view.dart' as _i2;
 import 'package:maxitivity/ui/views/timer/timer_view.dart' as _i4;
@@ -44,6 +45,10 @@ class StackedRouter extends _i1.RouterBase {
       Routes.timerView,
       page: _i4.TimerView,
     ),
+    _i1.RouteDef(
+      Routes.historyView,
+      page: _i5.HistoryView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
@@ -62,6 +67,12 @@ class StackedRouter extends _i1.RouterBase {
     _i4.TimerView: (data) {
       return _i6.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.TimerView(),
+        settings: data,
+      );
+    },
+    _i5.HistoryView: (data) {
+      return _i6.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i5.HistoryView(),
         settings: data,
       );
     },
@@ -117,6 +128,20 @@ extension NavigatorStateExtension on _i7.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToHistoryView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.historyView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithStartupView([
     int? routerId,
     bool preventDuplicates = true,
@@ -153,6 +178,20 @@ extension NavigatorStateExtension on _i7.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.timerView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithHistoryView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.historyView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

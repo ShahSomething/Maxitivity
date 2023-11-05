@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:maxitivity/ui/common/app_colors.dart';
 import 'package:maxitivity/ui/common/app_images.dart';
+import 'package:maxitivity/ui/widgets/common/circular_filled_button/circular_filled_button.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:stacked/stacked.dart';
 
@@ -136,37 +137,4 @@ class TimerView extends StackedView<TimerViewModel> {
     BuildContext context,
   ) =>
       TimerViewModel();
-}
-
-class CircularFilledButton extends StatelessWidget {
-  const CircularFilledButton({
-    super.key,
-    required this.color,
-    required this.text,
-    this.onPressed,
-    this.padding = 30,
-  });
-  final Color color;
-  final String text;
-  final VoidCallback? onPressed;
-  final double padding;
-
-  @override
-  Widget build(BuildContext context) {
-    return FilledButton.tonal(
-      onPressed: onPressed,
-      style: FilledButton.styleFrom(
-        backgroundColor: color.withOpacity(0.3),
-        shape: const CircleBorder(),
-        padding: EdgeInsets.all(padding),
-      ),
-      child: Text(
-        text,
-        style: Theme.of(context)
-            .textTheme
-            .labelSmall
-            ?.copyWith(color: color, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
 }

@@ -2,6 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:maxitivity/ui/common/app_colors.dart';
+import 'package:maxitivity/ui/views/history/history_view.dart';
 import 'package:maxitivity/ui/views/timer/timer_view.dart';
 import 'package:stacked/stacked.dart';
 
@@ -68,7 +69,7 @@ class NavigationView extends StackedView<NavigationViewModel> {
       case 0:
         return const TimerView();
       case 1:
-        return Container();
+        return const HistoryView();
       case 2:
         return Container();
       default:
