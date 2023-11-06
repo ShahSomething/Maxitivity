@@ -3,6 +3,7 @@ import 'package:mockito/mockito.dart';
 import 'package:maxitivity/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:maxitivity/services/timer_service.dart';
+import 'package:maxitivity/services/notification_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -12,12 +13,14 @@ import 'test_helpers.mocks.dart';
   MockSpec<BottomSheetService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<TimerService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<NotificationService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
   getAndRegisterNavigationService();
   getAndRegisterBottomSheetService();
   getAndRegisterDialogService();
+  getAndRegisterNotificationService();
 // @stacked-mock-register
 }
 
@@ -71,6 +74,12 @@ MockDialogService getAndRegisterDialogService() {
   return service;
 }
 
+MockNotificationService getAndRegisterNotificationService() {
+  _removeRegistrationIfExists<NotificationService>();
+  final service = MockNotificationService();
+  locator.registerSingleton<NotificationService>(service);
+  return service;
+}
 // @stacked-mock-create
 
 void _removeRegistrationIfExists<T extends Object>() {

@@ -34,9 +34,10 @@ class NavigationView extends StackedView<NavigationViewModel> {
         onTap: viewModel.setIndex,
         selectedItemColor: AppColors.primaryColor,
         unselectedItemColor: AppColors.whiteColor,
-        showSelectedLabels: true,
+        showSelectedLabels: false,
         showUnselectedLabels: false,
-        type: BottomNavigationBarType.shifting,
+        landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
+        backgroundColor: Colors.black,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
@@ -52,13 +53,13 @@ class NavigationView extends StackedView<NavigationViewModel> {
             ),
             label: 'History',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings,
-              size: 30.sp,
-            ),
-            label: 'Settings',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(
+          //     Icons.settings,
+          //     size: 30.sp,
+          //   ),
+          //   label: 'Settings',
+          // ),
         ],
       ),
     );
@@ -70,8 +71,8 @@ class NavigationView extends StackedView<NavigationViewModel> {
         return const TimerView();
       case 1:
         return const HistoryView();
-      case 2:
-        return Container();
+      // case 2:
+      //   return const SettingsView();
       default:
         return const TimerView();
     }

@@ -23,6 +23,7 @@ class HistoryView extends StackedView<HistoryViewModel> {
         ),
         elevation: 0,
         scrolledUnderElevation: 0,
+        centerTitle: true,
         backgroundColor: Colors.black,
       ),
       body: ListView.separated(

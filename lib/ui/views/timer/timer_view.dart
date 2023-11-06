@@ -26,6 +26,7 @@ class TimerView extends StackedView<TimerViewModel> {
         ),
         elevation: 0,
         scrolledUnderElevation: 0,
+        centerTitle: true,
         backgroundColor: Colors.transparent,
       ),
       body: SafeArea(
@@ -41,7 +42,7 @@ class TimerView extends StackedView<TimerViewModel> {
                   CircularPercentIndicator(
                     radius: 140.0,
                     lineWidth: 7.0,
-                    percent: viewModel.seconds / (60 * 25),
+                    percent: viewModel.seconds / (10),
                     center: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
