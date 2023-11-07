@@ -4,6 +4,8 @@ import 'package:maxitivity/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:maxitivity/services/timer_service.dart';
 import 'package:maxitivity/services/notification_service.dart';
+import 'package:maxitivity/services/api_service.dart';
+import 'package:maxitivity/services/database_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -14,6 +16,8 @@ import 'test_helpers.mocks.dart';
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<TimerService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<NotificationService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<ApiService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<DatabaseService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -21,6 +25,8 @@ void registerServices() {
   getAndRegisterBottomSheetService();
   getAndRegisterDialogService();
   getAndRegisterNotificationService();
+  getAndRegisterApiService();
+  getAndRegisterDatabaseService();
 // @stacked-mock-register
 }
 
@@ -78,6 +84,20 @@ MockNotificationService getAndRegisterNotificationService() {
   _removeRegistrationIfExists<NotificationService>();
   final service = MockNotificationService();
   locator.registerSingleton<NotificationService>(service);
+  return service;
+}
+
+MockApiService getAndRegisterApiService() {
+  _removeRegistrationIfExists<ApiService>();
+  final service = MockApiService();
+  locator.registerSingleton<ApiService>(service);
+  return service;
+}
+
+MockDatabaseService getAndRegisterDatabaseService() {
+  _removeRegistrationIfExists<DatabaseService>();
+  final service = MockDatabaseService();
+  locator.registerSingleton<DatabaseService>(service);
   return service;
 }
 // @stacked-mock-create

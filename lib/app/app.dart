@@ -7,8 +7,9 @@ import 'package:maxitivity/ui/views/navigation/navigation_view.dart';
 import 'package:maxitivity/ui/views/timer/timer_view.dart';
 import 'package:maxitivity/services/timer_service.dart';
 import 'package:maxitivity/ui/views/history/history_view.dart';
-import 'package:maxitivity/ui/views/settings/settings_view.dart';
 import 'package:maxitivity/services/notification_service.dart';
+import 'package:maxitivity/services/api_service.dart';
+import 'package:maxitivity/services/database_service.dart';
 // @stacked-import
 
 @StackedApp(routes: [
@@ -16,7 +17,6 @@ import 'package:maxitivity/services/notification_service.dart';
   MaterialRoute(page: NavigationView),
   MaterialRoute(page: TimerView),
   MaterialRoute(page: HistoryView),
-  MaterialRoute(page: SettingsView),
 // @stacked-route
 ], dependencies: [
   LazySingleton(classType: BottomSheetService),
@@ -24,6 +24,8 @@ import 'package:maxitivity/services/notification_service.dart';
   LazySingleton(classType: NavigationService),
   LazySingleton(classType: TimerService),
   LazySingleton(classType: NotificationService),
+  LazySingleton(classType: ApiService),
+  LazySingleton(classType: DatabaseService),
 // @stacked-service
 ], bottomsheets: [
   StackedBottomsheet(classType: NoticeSheet),

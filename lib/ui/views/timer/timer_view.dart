@@ -42,7 +42,7 @@ class TimerView extends StackedView<TimerViewModel> {
                   CircularPercentIndicator(
                     radius: 140.0,
                     lineWidth: 7.0,
-                    percent: viewModel.seconds / (10),
+                    percent: viewModel.seconds / (60 * 25),
                     center: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

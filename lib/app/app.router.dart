@@ -9,7 +9,6 @@ import 'package:flutter/material.dart' as _i7;
 import 'package:flutter/material.dart';
 import 'package:maxitivity/ui/views/history/history_view.dart' as _i5;
 import 'package:maxitivity/ui/views/navigation/navigation_view.dart' as _i3;
-import 'package:maxitivity/ui/views/settings/settings_view.dart' as _i6;
 import 'package:maxitivity/ui/views/startup/startup_view.dart' as _i2;
 import 'package:maxitivity/ui/views/timer/timer_view.dart' as _i4;
 import 'package:stacked/stacked.dart' as _i1;
@@ -53,10 +52,6 @@ class StackedRouter extends _i1.RouterBase {
       Routes.historyView,
       page: _i5.HistoryView,
     ),
-    _i1.RouteDef(
-      Routes.settingsView,
-      page: _i6.SettingsView,
-    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
@@ -81,12 +76,6 @@ class StackedRouter extends _i1.RouterBase {
     _i5.HistoryView: (data) {
       return _i7.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.HistoryView(),
-        settings: data,
-      );
-    },
-    _i6.SettingsView: (data) {
-      return _i7.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i6.SettingsView(),
         settings: data,
       );
     },
@@ -156,20 +145,6 @@ extension NavigatorStateExtension on _i8.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToSettingsView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return navigateTo<dynamic>(Routes.settingsView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
   Future<dynamic> replaceWithStartupView([
     int? routerId,
     bool preventDuplicates = true,
@@ -220,20 +195,6 @@ extension NavigatorStateExtension on _i8.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.historyView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
-  Future<dynamic> replaceWithSettingsView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return replaceWith<dynamic>(Routes.settingsView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

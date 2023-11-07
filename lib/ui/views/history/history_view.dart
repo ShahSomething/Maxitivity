@@ -26,33 +26,46 @@ class HistoryView extends StackedView<HistoryViewModel> {
         centerTitle: true,
         backgroundColor: Colors.black,
       ),
-      body: ListView.separated(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-        itemBuilder: (context, index) {
-          return ListTile(
-            contentPadding: EdgeInsets.only(left: 15.w),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.r),
-            ),
-            tileColor: AppColors.cardColorDark,
-            title: Text(
-              "Jan 12",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            subtitle: Text(
-              "11:00PM - 11:25PM",
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            trailing: const CircularFilledButton(
-              color: AppColors.successColor,
-              text: "25 min",
-              padding: 20,
-            ),
-          );
-        },
-        separatorBuilder: (context, index) => 10.verticalSpace,
-        itemCount: 7,
-      ),
+      body: viewModel.isLoading
+          ? const Center(child: CircularProgressIndicator.adaptive())
+          : viewModel.pomodoros.isEmpty
+              ? Center(
+                  child: Text(
+                    "No Pomodoros yet",
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                )
+              : ListView.separated(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+                  itemBuilder: (context, index) {
+                    var pomodoro = viewModel.pomodoros[index];
+                    return ListTile(
+                      contentPadding: EdgeInsets.only(left: 15.w),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.r),
+                      ),
+                      tileColor: AppColors.cardColorDark,
+                      title: Text(
+                        viewModel.formatedDate(pomodoro.startTime),
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      subtitle: Text(
+                        viewModel.formatedTime(
+                            pomodoro.startTime, pomodoro.endTime),
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                      trailing: CircularFilledButton(
+                        color: AppColors.successColor,
+                        text: viewModel
+                            .getMinutesAndSeconds(pomodoro.durationInSeconds),
+                        padding: 20,
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) => 10.verticalSpace,
+                  itemCount: viewModel.pomodoros.length,
+                ),
     );
   }
 
